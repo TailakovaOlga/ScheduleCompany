@@ -9,12 +9,46 @@ public class StatsService {
                 minMonth = i;//запомним его как минимальный
             }
         }
+
         return minMonth + 1;//
     }
 
 
+    public int getArreySum() {
+        StatsService service = new StatsService();
 
-    public int getMaxSales (int[] sales) {
+        int[] arrey = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+
+        int sum = 0;
+        int averageSum = sum / 12;
+        for (int num : arrey) {
+            sum = sum + num;
+            averageSum = sum / 12;
+
+        }
+        return sum;
+        //return averageSum;
+    }
+
+
+    public int getAveragySum() {
+        StatsService service = new StatsService();
+
+        int[] arrey = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+
+        int sum = 0;
+        int averageSum = sum / 12;
+        for (int num : arrey) {
+            sum = sum + num;
+            averageSum = sum / 12;
+        }
+
+        return averageSum;
+    }
+
+
+
+    public int getMaxSales(int[] sales) {
         int maxMonth = sales[0];
         int month = 0;
         for (int sale : sales) {
