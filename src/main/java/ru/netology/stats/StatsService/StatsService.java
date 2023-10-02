@@ -47,7 +47,6 @@ public class StatsService {
     }
 
 
-
     public int getMaxSales(int[] sales) {
         int maxMonth = sales[0];
         int month = 0;
@@ -59,7 +58,55 @@ public class StatsService {
         }
         return maxMonth + 1;
     }
+
+
+    public int getBelowAverageSum(int[] ba) {
+        int sum = 0;
+        int average = 0;
+        int count = 0;
+
+        for (int i = 0; i < ba.length; i++) {
+            sum = sum + ba [i];
+        }
+        average = sum / ba.length;
+
+        for (int i = 0; i < ba.length; i++) {
+            if (ba [i] < average) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    public int getAboveAverageSum(int[] ba) {
+        int sum = 0;
+        int average = 0;
+        int count = 0;
+
+        for (int i = 0; i > ba.length; i++) {
+            sum = sum + ba [i];
+        }
+        average = sum / ba.length;
+
+        for (int i = 0; i > ba.length; i++) {
+            if (ba [i] > average) {
+                count++;
+            }
+        }
+        return count;
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
 
