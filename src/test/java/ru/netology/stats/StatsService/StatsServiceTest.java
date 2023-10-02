@@ -23,24 +23,24 @@ public class StatsServiceTest {
     public void shouldFindArreySum() {
         StatsService service = new StatsService();
 
-        int[] arrey = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+        int[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
 
-        int expectedSum = 180;
+        int expected = 8 + 15 + 13 + 15 + 17 + 20 + 19 + 20 + 7 + 14 + 14 + 18;
 
-        int actualSum = service.getArreySum();
+        int actual = service.sum(sales);
 
-        Assertions.assertEquals(expectedSum, actualSum);
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
     public void shouldFindAverageSum() {
         StatsService service = new StatsService();
 
-        int[] arrey = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+        int[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
 
-        int expected = 15;
+        int expected = (8 + 15 + 13 + 15 + 17 + 20 + 19 + 20 + 7 + 14 + 14 + 18) / 12;
 
-        int actual = service.getAveragySum();
+        int actual = service.getAverageSale(sales);
 
         Assertions.assertEquals(expected, actual);
     }
@@ -60,59 +60,29 @@ public class StatsServiceTest {
     }
 
     @Test
-    public void shouldFindBelowAverageSum() {
+    public void shouldFindBelowAverage() {
         StatsService service = new StatsService();
 
-        int[] ba = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+        int[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
 
-        int expectedBelowAverageSum = 5;
+        int expectedBelowAverage = 5;
 
-        int actualBelowAverageSum = service.getBelowAverageSum(ba);
+        int actualBelowAverage = service.monthsBelowAverage(sales);
 
-        Assertions.assertEquals(expectedBelowAverageSum, actualBelowAverageSum);
+        Assertions.assertEquals(expectedBelowAverage, actualBelowAverage);
     }
 
     @Test
-    public void shouldFindAboveAverageSum() {
+    public void shouldFindAboveAverage() {
         StatsService service = new StatsService();
 
-        int[] ba = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+        int[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
 
-        int expectedBelowAverageSum = 5;
+        int expectedBAboveAverage = 5;
 
-        int actualBelowAverageSum = service.getBelowAverageSum(ba);
+        int actualAboveAverage = service.monthsBelowAverage(sales);
 
-        Assertions.assertEquals(expectedBelowAverageSum, actualBelowAverageSum);
+        Assertions.assertEquals(expectedBAboveAverage, actualAboveAverage);
     }
-}
-   // public int getBelowAverageSum(int[] ba) {
-    //    int sum = 0;
-     //   int average = 0;
-      //  int count = 0;
 
-      //  for (int i = 0; i < 15; i++) {
-       //     sum = sum + ba [i];
-      //  }
-       // average = sum / 15;
-
-      //  for (int i = 0; i < 15; i++) {
-         //   if (ba [i] < average) {
-          //      count++;
-          //  }
-       // }
-       // return count;
-   // }
-//}
-
-   // @Test
-    //public void shouldAverageSales() {
-     //   int[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
-
-      //  int actualMonth = service.getAverageSales(sales);
-
-     //   Assertions.assertEquals(expectedMonth, actualMonth);
-   // }
-//}
-
-// return calculateSumSales(sales)/sales.length;
-//  }
+    }

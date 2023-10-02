@@ -14,36 +14,21 @@ public class StatsService {
     }
 
 
-    public int getArreySum() {
-        StatsService service = new StatsService();
+    public int sum(int[] sales) {
+        int totalSale = 0;
 
-        int[] arrey = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
-
-        int sum = 0;
-        int averageSum = sum / 12;
-        for (int num : arrey) {
-            sum = sum + num;
-            averageSum = sum / 12;
+        for (int sale : sales) {
+            totalSale += sale;
 
         }
-        return sum;
-        //return averageSum;
+        return totalSale;
+
     }
 
-
-    public int getAveragySum() {
-        StatsService service = new StatsService();
-
-        int[] arrey = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
-
-        int sum = 0;
-        int averageSum = sum / 12;
-        for (int num : arrey) {
-            sum = sum + num;
-            averageSum = sum / 12;
-        }
-
-        return averageSum;
+    public int getAverageSale(int[] sales) {
+        int totalSale = sum(sales);
+        int averageSale = totalSale / 12;
+        return averageSale;
     }
 
 
@@ -60,42 +45,30 @@ public class StatsService {
     }
 
 
-    public int getBelowAverageSum(int[] ba) {
-        int sum = 0;
-        int average = 0;
+    public int monthsBelowAverage(int[] sales) {
         int count = 0;
-
-        for (int i = 0; i < ba.length; i++) {
-            sum = sum + ba [i];
-        }
-        average = sum / ba.length;
-
-        for (int i = 0; i < ba.length; i++) {
-            if (ba [i] < average) {
+        int average = getAverageSale(sales);
+        for (int sale : sales) {
+            if (sale < average) {
                 count++;
             }
         }
         return count;
     }
 
-    public int getAboveAverageSum(int[] ba) {
-        int sum = 0;
-        int average = 0;
+
+    public int monthsAboveAverage(long[] sales) {
         int count = 0;
-
-        for (int i = 0; i > ba.length; i++) {
-            sum = sum + ba [i];
-        }
-        average = sum / ba.length;
-
-        for (int i = 0; i > ba.length; i++) {
-            if (ba [i] > average) {
+        long average = monthsAboveAverage(sales);
+        for (long sale : sales) {
+            if (sale > average) {
                 count++;
             }
         }
         return count;
     }
 }
+
 
 
 
